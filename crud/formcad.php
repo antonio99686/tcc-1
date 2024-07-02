@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/formcad.css">
     <script src="../java/login.js" defer></script>
     
-    <title>Sentinela da Fronteira</title>
+    <title></title>
 </head>
 <body>
 
