@@ -69,14 +69,18 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 box-shadow">
-                <h2>Box-Shadow 1</h2>
-                <p>Conteúdo do primeiro elemento com sombra.</p>
+            <div class="card" style="width: 18rem;">
+              <a href="futuro.php">  <img src="img/carro.jfif" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                <p class="card-text">lorenzo1</p>
+                        
+                </div>
+            </div>
             </div>
             <div class="card" style="width: 18rem;">
               <a href="futuro.php">  <img src="img/carro.jfif" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <p class="card-text">lorenzo
-                        .</p>
+                <p class="card-text">lorenzo2.</p>
                         
                 </div>
             </div>
@@ -89,7 +93,7 @@
     <script>
         $(document).ready(function () {
             $('#carouselExampleIndicators').carousel({
-                interval: 300 // Tempo em milissegundos (3 segundos)
+                interval: 1000 // Tempo em milissegundos (3 segundos)
             });
         });
     </script>
