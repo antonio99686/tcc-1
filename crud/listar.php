@@ -1,36 +1,58 @@
 <?php
 // Conectar ao BD
-include("conexao.php");
+include ("conexao.php");
 
-// Seleciona todos os dados da tabela lista
-$sql = "SELECT * FROM lista";
+// Consultar dados no banco de dados
+$sql = "SELECT * FROM usuario";
+$result = mysqli_query($conexao, $sql);
 
-// Executa o Select
-$resultado = mysqli_query($conexao,$sql);
-
-//Lista os itens
-echo ' <div class="table">
-  <table>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Produto</th>
-      <th scope="col">Quantidade</th>
-      <th scope="col">Valor</th>
-      <th scope="col">Foto</th>
-
-    </tr>';
-
-while ($dados = mysqli_fetch_assoc($resultado)) {
-      echo "<td>" .  $dados['idLista']    .  "</td>";
-      echo "<td>" .  $dados['produto']    .  "</td>";
-      echo "<td>" .  $dados['quantidade'] .  "</td>";
-      echo "<td>" .  $dados['valor']      .  "</td>";
-      echo "<td>" .  $dados['imagem']     .  "</td>";
-      echo "<td><a href='formedit.php?id=".$dados['idLista']."&nome=".$dados['produto']."&quant=".$dados['quantidade']."&valor=".$dados['valor']."'>"."<img src='img/settings.png' widht='20' height='20'"."</a>";
-      echo " <a href='excluir.php?id=".$dados['idLista']."'>"."<img src='img/lixeira.png' widht='20' height='20'"."</a></td>";
-    echo '</tr>';
-     
-}
-echo '</table>
-</div>';
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listagem de Usuários</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Listagem de Usuários</h2>
+
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Matrícula</th>
+        <th>Telefone</th>
+    </tr>
+    <?php
+    if (mysqli_num_rows($result) > 0) {
+        // Output de dados de cada linha
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>" . $row["nome"] . "</td>";
+            echo "<td>" . $row["email"] . "</td>";
+            echo "<td>" . $row["matricula"] . "</td>";
+            echo "<td>" . $row["telefone"] . "</td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='4'>Nenhum usuário encontrado</td></tr>";
+    }
+    ?>
+</table>
+
+</body>
+</html>

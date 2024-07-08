@@ -1,39 +1,25 @@
 <?php
 
 // Conectar ao BD
-include("conexao.php");
+include ("conexao.php");
 
 // receber os dados do formulário
-$nome = $_GET['username'];
-$email = $_GET['email'];
-$matricula = $_GET['mat'];
-$telefone = $_GET['tele'];
- 
+$nome = $_POST['username'];
+$email = $_POST['email'];
+$matricula = $_POST['matricula'];
+$telefone = $_POST['telefone'];
+$senha = $_POST['senha'];
 
 
-if (isset($_FILES['arquivo'])) {
-
-    //pega a extensao do arquivo
-    $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
-
-    //define o nome do arquivo
-    $novo_nome = $_FILES['arquivo']['name'] . time();
-
-    //define a pasta para onde enviaremos o arquivo
-    $diretorio = "fotos/";
-
-    //faz o upload, movendo o arquivo para a pasta especificada
-    move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio . $novo_nome); 
-
-    //cadastra no banco
-    $sql = "UPDATE usuario SET 
-      email = '$email',  imagem = '$novo_nome', matrucula = '$matricula', telefone = '$telefone' WHERE nome = $nome";
+//cadastra no banco
+$sql = "UPDATE usuario SET 
+      email = '$email', nome = '$nome', telefone = '$telefone', senha = '$senha',  WHERE matricula = $matricula";
 
 
-    if (mysqli_query($conexao, $sql))
-        echo "Arquivo enviado com sucesso!";
-    else
-        echo "Falha ao enviar arquivo.";
-}
+if (mysqli_query($conexao, $sql))
+  echo "Arquivo enviado com sucesso!";
+else
+  echo "Falha ao enviar arquivo.";
+
 header('location: index.php');
 
