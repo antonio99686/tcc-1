@@ -90,13 +90,21 @@
     <!-- Bootstrap JS e dependências -->
     <script src="bootstrap.js"></script>
     <!-- Script para carrossel automático -->
-    <script>
-        $(document).ready(function () {
-            $('#carouselExampleIndicators').carousel({
-                interval: 1000 // Tempo em milissegundos (3 segundos)
-            });
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="javascript/bootstrap.js"></script>
+
+<!-- Script para carrossel automático -->
+<script>
+    $(document).ready(function () {
+        $('#carouselExampleIndicators').carousel({
+            interval: 3000 // Tempo em milissegundos (3 segundos)
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
+
+
+
+
