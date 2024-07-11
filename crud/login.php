@@ -44,11 +44,11 @@
     <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Lembrar-me
+      <!--  <input type="checkbox" value="remember-me"> Lembrar-me -->
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>  
-    <a class="nav-link active" aria-current="page" href="">Editar</a>
+  
         </li>
   </form>
 </body>
