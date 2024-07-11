@@ -35,8 +35,8 @@
     }
   </style>
 </head>
-<body class="text-center">
-  <form class="form-signin">
+
+  <form class="form-signin" action="../index2.php" method="post">
     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
     <label for="inputEmail" class="sr-only">Email</label>
     <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
