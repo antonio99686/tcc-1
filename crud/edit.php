@@ -5,21 +5,39 @@ include ("conexao.php");
 
 // receber os dados do formulário
 $nome = $_POST['username'];
-$email = $_POST['email'];
-$matricula = $_POST['matricula'];
-$telefone = $_POST['telefone'];
 $senha = $_POST['senha'];
 
 
 //cadastra no banco
 $sql = "UPDATE usuario SET 
-      email = '$email', nome = '$nome', telefone = '$telefone', senha = '$senha',  WHERE matricula = $matricula";
+    nome = '$nome', senha = '$senha',  WHERE matricula = $matricula";
 
-
-if (mysqli_query($conexao, $sql))
-  echo "Arquivo enviado com sucesso!";
-else
-  echo "Falha ao enviar arquivo.";
+if (mysqli_query($conexao, $sql)) {
+  echo "<script>
+  Swal.fire({
+      icon: 'success',
+      title: 'Sucesso Usuario Cadastrado ',
+      test: 'pessoa cdastrada com sucesso',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(() =>{
+      window.location.href='../index.php';
+  });</script> ";
+    exit();
+  }else{
+      echo "<script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Erro ao cadastrar',
+          test: 'falha ao cadastrar',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() =>{
+          window.location.href='../index.php';
+      });</script> ";
+        exit();
+      
+  }
 
 header('location: index.php');
 

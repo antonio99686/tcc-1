@@ -38,18 +38,19 @@
 
   <form class="form-signin" action="../index2.php" method="post">
     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-    <label for="inputPassword" class="sr-only">Senha</label>
+    <input type="text" id="inputId" class="form-control" placeholder="Matricula" required autofocus>
+
     <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
     <div class="checkbox mb-3">
       <label>
-      <!--  <input type="checkbox" value="remember-me"> Lembrar-me -->
+        <input type="checkbox" value="remember-me"> Lembrar-me 
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>  
-  
+
+    <a class="btn btn-lg  btn-block" href="formcad.php">Cadastrar</a>  
         </li>
   </form>
+  
 </body>
 </html>

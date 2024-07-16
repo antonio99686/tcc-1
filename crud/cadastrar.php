@@ -15,7 +15,7 @@
 <?php
 
 // Receber os dados do formulário
-$nome = $_POST['username'];
+$nome = $_POST['nome'];
 $matricula = $_POST['matricula'];
 $senha = $_POST['senha'];
 
@@ -32,7 +32,7 @@ if (mysqli_query($conexao, $sql)) {
     echo "<script>
     Swal.fire({
         icon: 'success',
-        title: 'sucesso',
+        title: 'Sucesso Usuario Cadastrado ',
         test: 'pessoa cdastrada com sucesso',
         showConfirmButton: false,
         timer: 1500
@@ -44,7 +44,7 @@ if (mysqli_query($conexao, $sql)) {
         echo "<script>
         Swal.fire({
             icon: 'error',
-            title: 'erro',
+            title: 'Erro ao cadastrar',
             test: 'falha ao cadastrar',
             showConfirmButton: false,
             timer: 1500

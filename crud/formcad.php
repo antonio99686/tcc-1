@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/formcad.css">
     <script src="../java/login.js" defer></script>
 
    
@@ -34,13 +33,13 @@
     .form-signin .form-control:focus {
       z-index: 2;
     }
-    .form-signin input[type="nome"] {
+    .form-signin input[type="name"] {
       margin-bottom: -1px;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
     }
 
-    .form-signin input[type="email"] {
+    .form-signin input[type="text"] {
       margin-bottom: -1px;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
@@ -49,28 +48,32 @@
     
     
     }
-    .form-signin input[type="senha"] {
+    .form-signin input[type="password"] {
       margin-bottom: 10px;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
   </style>
 </head>
-
-  <form class="form-signin" action="../index2.php" method="post">
-    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-    <label for="nome" class="sr-only">nome</label>
-    <input type="nome" id="nome" class="form-control" placeholder="nome" required autofocus>
-    <label for="email" class="sr-only">Email</label>
-    <input type="email" id="email" class="form-control" placeholder="Email" required autofocus>
-    <label for="senha" class="sr-only">Senha</label>
-    <input type="senha" id="senha" class="form-control" placeholder="Senha" required>
+<form class="form-signin" action="cadastrar.php" method="POST">
+    <h1 class="h3 mb-3 font-weight-normal">Cadastrar-se</h1>
+    <label for="Nome" class="sr-only">Nome</label>
+    <input type="name" name="nome"class="form-control" placeholder="Nome" required>
+    <label for="Matricula" class="sr-only">Matricula</label>
+    <input type="text" name="matricula" class="form-control" placeholder="Matricula" required>
+    <label for="Senha" class="sr-only">Senha</label>
+    <input type="password"  name="senha" class="form-control" placeholder="Senha" required>
     <div class="checkbox mb-3">
       <label>
-      <!--  <input type="checkbox" value="remember-me"> Lembrar-me -->
+       <input type="checkbox" value="remember-me"> Lembrar-me
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button> 
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button> 
+    <a class="btn btn-lg  btn-block" href="login.php">Entrar</a>  
+
+
+
+
 
 
 
@@ -81,3 +84,9 @@
     </footer>
 </body>
 </html>
+
+
+
+
+
+
