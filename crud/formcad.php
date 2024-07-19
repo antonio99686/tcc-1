@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../java/login.js" defer></script>
-
+    <link href="../css/cadastraR.css" rel="stylesheet">
    
     <title></title>
 </head>
@@ -17,43 +17,7 @@
  
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- Estilos CSS personalizados -->
-  <style>
-    .form-signin {
-      max-width: 380px;
-      padding: 15px;
-      margin: auto;
-    }
-    .form-signin .form-control {
-      position: relative;
-      box-sizing: border-box;
-      height: auto;
-      padding: 10px;
-      font-size: 16px;
-    }
-    .form-signin .form-control:focus {
-      z-index: 2;
-    }
-    .form-signin input[type="name"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
 
-    .form-signin input[type="text"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-    
-    
-    }
-    .form-signin input[type="password"] {
-      margin-bottom: 10px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-  </style>
 </head>
 <form class="form-signin" action="cadastrar.php" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Cadastrar-se</h1>
