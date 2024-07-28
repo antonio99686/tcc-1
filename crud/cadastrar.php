@@ -29,30 +29,27 @@ $sql = "INSERT INTO usuario(nome,matricula,senha)
     VALUES ('$nome',$matricula,'$senha')";
 
 if (mysqli_query($conexao, $sql)) {
-    echo "<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Sucesso Usuario Cadastrado ',
-        test: 'pessoa cdastrada com sucesso',
-        showConfirmButton: false,
-        timer: 1500
-      }).then(() =>{
-        window.location.href='../index.php';
-    });</script> ";
-      exit();
-    }else{
-        echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Erro ao cadastrar',
-            test: 'falha ao cadastrar',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(() =>{
-            window.location.href='../index.php';
-        });</script> ";
-          exit();
-        
-    }
-
-?>
+  echo "<script>
+  Swal.fire({
+      icon: 'success',
+      title: 'Sucesso! Usuário Cadastrado',
+      text: 'Pessoa cadastrada com sucesso.',
+      showConfirmButton: false,
+      timer: 1500
+  }).then(() => {
+      window.location.href = '../index.php';
+  });
+  </script>";
+} else {
+  echo "<script>
+  Swal.fire({
+      icon: 'error',
+      title: 'Erro ao cadastrar',
+      text: 'Falha ao cadastrar.',
+      showConfirmButton: false,
+      timer: 1500
+  }).then(() => {
+      window.location.href = '../index.php';
+  });
+  </script>";
+}

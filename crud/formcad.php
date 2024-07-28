@@ -28,9 +28,7 @@
     <label for="Senha" class="sr-only">Senha</label>
     <input type="password"  name="senha" class="form-control" placeholder="Senha" required>
     <div class="checkbox mb-3">
-      <label>
-       <input type="checkbox" value="remember-me"> Lembrar-me
-      </label>
+  
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button> 
     <a class="btn btn-lg  btn-block" href="login.php">Entrar</a>  

@@ -8,7 +8,9 @@
   background-color: mediumaquamarine;
   color: aliceblue;
   border-radius: 5%;
-  }
+
+
+
   .form-signin .form-control {
     position: relative;
     box-sizing: border-box;
@@ -33,3 +35,4 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+}
