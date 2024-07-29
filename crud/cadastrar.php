@@ -23,12 +23,13 @@ $senha = $_POST['senha'];
 
 
 // Conectar ao BD
-include ("conexao.php");
+require_once "../function/conexao.php";
+$conexao = conn();
 //cadastra no banco
 $sql = "INSERT INTO usuario(nome,matricula,senha) 
     VALUES ('$nome',$matricula,'$senha')";
 
-if (mysqli_query($conexao, $sql)) {
+if (executarSQL($conexao, $sql)) {
   echo "<script>
   Swal.fire({
       icon: 'success',

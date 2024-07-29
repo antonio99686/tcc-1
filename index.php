@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../css/login.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
   <title>Login</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -19,7 +19,7 @@
     <div class="checkbox mb-3">
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-    <a class="btn btn-lg btn-secondary btn-block" href="formcad.php">Cadastrar</a>
+    <a class="btn btn-lg btn-secondary btn-block" href="crud/formcad.php">Cadastrar</a>
   </form>
 </body>
 

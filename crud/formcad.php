@@ -31,7 +31,7 @@
   
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button> 
-    <a class="btn btn-lg  btn-block" href="login.php">Entrar</a>  
+    <a class="btn btn-lg  btn-block" href="../index.php">Entrar</a>  
 
 
 
