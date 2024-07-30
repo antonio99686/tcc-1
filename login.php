@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,26 +12,29 @@
     <!-- SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
+
 <body>
-  
+
     <?php
-    session_start(); 
+    session_start();
     require_once "function/conexao.php";
     $conexao = conn();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['matricula'], $_POST['senha'])) {
-        $matricula = mysqli_real_escape_string($conexao, $_POST['matricula']);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['CPF'], $_POST['senha'], $_POST['nome'])) {
+        $matricula = mysqli_real_escape_string($conexao, $_POST['CPF']);
         $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+        $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
 
-        $sql = "SELECT * FROM usuario WHERE matricula = '{$matricula}' AND senha = '{$senha}'";
+        $sql = "SELECT * FROM usuario WHERE CPF = '{$CPF}' AND senha = '{$senha}' AND nome = '{$nome}'";
         $resultado = executarSQL($conexao, $sql);
 
         if (mysqli_num_rows($resultado) > 0) {
             $dados = mysqli_fetch_assoc($resultado);
-            $_SESSION['matricula'] = $matricula;
+            $_SESSION['nome'] = $nome;
+            $_SESSION['CPF'] = $CPF;
             $_SESSION['senha'] = $senha;
-            $_SESSION['id_usuario'] = $dados['id_usuario']; 
-            $_SESSION['nivel'] = $dados['nivel']; 
+            $_SESSION['id_usuario'] = $dados['id_usuario'];
+            $_SESSION['nivel'] = $dados['nivel'];
 
             // Use a variável PHP para criar o JavaScript que será injetado na página
             $nivel = $dados['nivel'];
@@ -51,6 +55,9 @@
                         break;
                     case '3':
                         window.location.href = 'psicologa/psicologa.php';
+                        break;
+                    case '0':
+                        window.location.href = 'testeloginm.php';
                         break;
                     default:
                         Swal.fire({
@@ -75,4 +82,5 @@
     }
     ?>
 </body>
+
 </html>

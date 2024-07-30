@@ -22,7 +22,7 @@
           <a class="nav-link active" aria-current="page" href="crud/editcad.php">Editar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Perfil</a>
+          <a class="nav-link active" aria-current="page" href="crud/perfil.php">Perfil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="crud/formcad.php">Cadastrar</a>

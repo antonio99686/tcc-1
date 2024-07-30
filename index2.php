@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar com Carrossel Automático e Box-Shadow</title>
+    <title></title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/css2.css">
     <link rel="shortcut icon" href="img/assistrencia.png">
@@ -74,7 +74,7 @@
             <div class="card" style="width: 18rem;">
               <a href="futuro.php">  <img src="img/carro.jfif" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                <p class="card-text">lorenzo1</p>
+                <p class="card-text">text1</p>
                         
                 </div>
             </div>
@@ -82,7 +82,7 @@
             <div class="card" style="width: 18rem;">
               <a href="futuro.php">  <img src="img/carro.jfif" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                <p class="card-text">lorenzo2.</p>
+                <p class="card-text">text2</p>
                         
                 </div>
             </div>

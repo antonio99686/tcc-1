@@ -14,8 +14,9 @@
 <body>
   <form class="form-signin" action="login.php" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-    <input type="text" id="inputId" name="matricula" class="form-control" placeholder="Matricula" required autofocus>
+    <input type="text" id="inputId" name="CPF" class="form-control" placeholder="CPF" required autofocus>
     <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
+    <input type="text" id="inputPassword" name="nome" class="form-control" placeholder="nome" required>
     <div class="checkbox mb-3">
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
