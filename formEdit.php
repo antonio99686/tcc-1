@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    /*$datas = $_POST['datas'];
+    $datas = $_POST['datas'];
     $status = $_POST['status'];
     $CPF = $_POST['CPF'];
     $RG = $_POST['RG'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tele_respon = $_POST['tele_respon'];
     $idade = $_POST['idade'];
     $nom_dan = $_POST['nom_dan'];
-    $genero = $_POST['genero'];*/
+    $genero = $_POST['genero'];
 
     // Atualizar os dados no banco de dados (sem declarações preparadas)
     $sql = "UPDATE usuario SET 
@@ -56,7 +56,7 @@ if (isset($_GET['id_usuario'])) {
         $nome = $row['nome'];
         $email = $row['email'];
         $senha = $row['senha'];
-       /* $datas = $row['datas'];
+        $datas = $row['datas'];
         $status = $row['categoria'];
         $CPF = $row['CPF'];
         $RG = $row['RG'];
@@ -68,7 +68,7 @@ if (isset($_GET['id_usuario'])) {
         $tele_respon = $row['tele_respon'];
         $idade = $row['idade'];
         $nom_dan = $row['nom_dan'];
-        $genero = $row['genero'];*/
+        $genero = $row['genero'];
     } else {
         echo "<script>
             alert('Nenhum resultado encontrado para o ID especificado.');
@@ -79,7 +79,6 @@ if (isset($_GET['id_usuario'])) {
 
 $conexao->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,97 +89,104 @@ $conexao->close();
     <link rel="shortcut icon" href="../img/img/icon.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
-    <title>Edição</title>+
+    <title>Edição</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <header>
-            <img src="../img/icno.jpg" alt="Logo" class="logo" />
+            <img src="../img/icno.jpg" alt="Logo" class="logo mb-4" />
         </header>
-        <h1> Atualização do Usuário </h1>
+        <h1 class="mb-4">Atualização do Usuário</h1>
         <form class="form" action="formEdit.php" method="POST" enctype="multipart/form-data">
-            <div class="form_grupo">
-                <label for="id_usuario" class="form_label">ID</label>
-                <input type="text" name="id_usuario" class="form_input" value="<?php echo isset($id_usuario) ? $id_usuario : ''; ?>" placeholder="ID" readonly>
+            <div class="form-group">
+                <label for="id_usuario" class="form-label">ID</label>
+                <input type="text" name="id_usuario" class="form-control" value="<?php echo isset($id_usuario) ? $id_usuario : ''; ?>" placeholder="ID" readonly>
             </div>
-            <div class="form_grupo">
-                <label for="nome" class="form_label">Nome</label>
-                <input type="text" name="nome" class="form_input" value="<?php echo isset($nome) ? $nome : ''; ?>" placeholder="Nome">
+            <div class="form-group">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" name="nome" class="form-control" value="<?php echo isset($nome) ? $nome : ''; ?>" placeholder="Nome">
             </div>
-            <div class="form_grupo">
-                <label for="email" class="form_label">Email</label>
-                <input type="email" name="email" class="form_input" value="<?php echo isset($email) ? $email : ''; ?>" placeholder="seuemail@email.com">
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" value="<?php echo isset($email) ? $email : ''; ?>" placeholder="seuemail@email.com">
             </div>
-            <div class="form_grupo">
-                <label for="senha" class="form_label">Senha</label>
-                <input type="password" name="senha" class="form_input" value="<?php echo isset($senha) ? $senha : ''; ?>" placeholder="mínimo 8 caracteres">
+            <div class="form-group">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" name="senha" class="form-control" value="<?php echo isset($senha) ? $senha : ''; ?>" placeholder="mínimo 8 caracteres">
             </div>
-            <div class="form_grupo">
-                <label for="datas" class="form_label">Data de Nascimento</label>
-                <input type="date" name="datas" class="form_input" value="<?php echo isset($datas) ? $datas : ''; ?>" placeholder="Data de Nascimento">
+            <div class="form-group">
+                <label for="datas" class="form-label">Data de Nascimento</label>
+                <input type="date" name="datas" class="form-control" value="<?php echo isset($datas) ? $datas : ''; ?>" placeholder="Data de Nascimento">
             </div>
-            <div class="form_grupo">
-                <label for="status" class="form_label">Categoria</label>
-                <select name="status" class="dropdown">
+            <div class="form-group">
+                <label for="status" class="form-label">Categoria</label>
+                <select name="status" class="form-control">
                     <option value="" disabled <?php echo ($status == '') ? 'selected' : ''; ?>>Selecione</option>
                     <option value="1" <?php echo ($status == 1) ? 'selected' : ''; ?>>Dançarino</option>
                     <option value="2" <?php echo ($status == 2) ? 'selected' : ''; ?>>Coordenador</option>
                     <option value="3" <?php echo ($status == 3) ? 'selected' : ''; ?>>Responsável</option>
                 </select>
             </div>
-            <div class="form_grupo">
-                <label for="CPF" class="form_label">CPF</label>
-                <input type="text" name="CPF" class="form_input" value="<?php echo isset($CPF) ? $CPF : ''; ?>" placeholder="00000000000">
+            <div class="form-group">
+                <label for="CPF" class="form-label">CPF</label>
+                <input type="text" name="CPF" class="form-control" value="<?php echo isset($CPF) ? $CPF : ''; ?>" placeholder="00000000000">
             </div>
-            <div class="form_grupo">
-                <label for="RG" class="form_label">RG</label>
-                <input type="text" name="RG" class="form_input" value="<?php echo isset($RG) ? $RG : ''; ?>" placeholder="00000000000">
+            <div class="form-group">
+                <label for="RG" class="form-label">RG</label>
+                <input type="text" name="RG" class="form-control" value="<?php echo isset($RG) ? $RG : ''; ?>" placeholder="00000000000">
             </div>
-            <div class="form_grupo">
-                <label for="categoria" class="form_label">Nível</label>
-                <input type="text" name="categoria" class="form_input" value="<?php echo isset($categoria) ? $categoria : ''; ?>" placeholder="adulto, juvenil, mirim">
+            <div class="form-group">
+                <label for="categoria" class="form-label">Nível</label>
+                <input type="text" name="categoria" class="form-control" value="<?php echo isset($categoria) ? $categoria : ''; ?>" placeholder="adulto, juvenil, mirim">
             </div>
-            <div class="form_grupo">
-                <label for="telefone" class="form_label">Telefone</label>
-                <input type="text" name="telefone" class="form_input" value="<?php echo isset($telefone) ? $telefone : ''; ?>" placeholder="(00)0000-00000">
+            <div class="form-group">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" name="telefone" class="form-control" value="<?php echo isset($telefone) ? $telefone : ''; ?>" placeholder="(00)0000-00000">
             </div>
-            <div class="form_grupo">
-                <label for="endereco" class="form_label">Endereço</label>
-                <input type="text" name="endereco" class="form_input" value="<?php echo isset($endereco) ? $endereco : ''; ?>" placeholder="">
+            <div class="form-group">
+                <label for="endereco" class="form-label">Endereço</label>
+                <input type="text" name="endereco" class="form-control" value="<?php echo isset($endereco) ? $endereco : ''; ?>" placeholder="">
             </div>
-            <div class="form_grupo">
-                <label for="responsavel" class="form_label">Responsável</label>
-                <input type="text" name="responsavel" class="form_input" value="<?php echo isset($responsavel) ? $responsavel : ''; ?>" placeholder="Nome">
+            <div class="form-group">
+                <label for="responsavel" class="form-label">Responsável</label>
+                <input type="text" name="responsavel" class="form-control" value="<?php echo isset($responsavel) ? $responsavel : ''; ?>" placeholder="Nome">
             </div>
-            <div class="form_grupo">
-                <label for="data_entrada" class="form_label">Data de Entrada</label>
-                <input type="date" name="data_entrada" class="form_input" value="<?php echo isset($data_entrada) ? $data_entrada : ''; ?>" placeholder="">
+            <div class="form-group">
+                <label for="data_entrada" class="form-label">Data de Entrada</label>
+                <input type="date" name="data_entrada" class="form-control" value="<?php echo isset($data_entrada) ? $data_entrada : ''; ?>" placeholder="">
             </div>
-            <div class="form_grupo">
-                <label for="tele_respon" class="form_label">Telefone do Responsável</label>
-                <input type="text" name="tele_respon" class="form_input" value="<?php echo isset($tele_respon) ? $tele_respon : ''; ?>" placeholder="(00)0000-00000">
+            <div class="form-group">
+                <label for="tele_respon" class="form-label">Telefone do Responsável</label>
+                <input type="text" name="tele_respon" class="form-control" value="<?php echo isset($tele_respon) ? $tele_respon : ''; ?>" placeholder="(00)0000-00000">
             </div>
-            <div class="form_grupo">
-                <label for="idade" class="form_label">Idade</label>
-                <input type="text" name="idade" class="form_input" value="<?php echo isset($idade) ? $idade : ''; ?>" placeholder="00">
+            <div class="form-group">
+                <label for="idade" class="form-label">Idade</label>
+                <input type="text" name="idade" class="form-control" value="<?php echo isset($idade) ? $idade : ''; ?>" placeholder="00">
             </div>
-            <div class="form_grupo">
-                <label for="nom_dan" class="form_label">Nome do Dançarino</label>
-                <input type="text" name="nom_dan" class="form_input" value="<?php echo isset($nom_dan) ? $nom_dan : ''; ?>" placeholder="">
+            <div class="form-group">
+                <label for="nom_dan" class="form-label">Nome do Dançarino</label>
+                <input type="text" name="nom_dan" class="form-control" value="<?php echo isset($nom_dan) ? $nom_dan : ''; ?>" placeholder="">
             </div>
-            <div class="form_grupo">
-                <label for="genero" class="form_label">Gênero</label>
-                <select name="genero" class="dropdown">
+            <div class="form-group">
+                <label for="genero" class="form-label">Gênero</label>
+                <select name="genero" class="form-control">
                     <option value="" disabled <?php echo ($genero == '') ? 'selected' : ''; ?>>Selecione</option>
                     <option value="F" <?php echo ($genero == 'F') ? 'selected' : ''; ?>>Feminino</option>
                     <option value="M" <?php echo ($genero == 'M') ? 'selected' : ''; ?>>Masculino</option>
                 </select>
             </div>
-            <div class="form_grupo">
-                <input type="submit" value="Enviar" class="form-control">
+            <div class="form-group">
+                <input type="submit" value="Enviar" class="btn btn-primary">
             </div>
         </form>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
