@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,7 +16,7 @@
     <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
     <input type="text" id="inputPassword" name="nome" class="form-control" placeholder="nome" required>
     <div class="checkbox mb-3">
-    </div>
+  </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
     <a class="btn btn-lg btn-secondary btn-block" href="crud/formcad.php">Cadastrar</a>
   </form>

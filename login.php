@@ -21,66 +21,138 @@
     $conexao = conn();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['CPF'], $_POST['senha'], $_POST['nome'])) {
-        $matricula = mysqli_real_escape_string($conexao, $_POST['CPF']);
+        $CPF = mysqli_real_escape_string($conexao, $_POST['CPF']);
         $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
         $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
 
         $sql = "SELECT * FROM usuario WHERE CPF = '{$CPF}' AND senha = '{$senha}' AND nome = '{$nome}'";
-        $resultado = executarSQL($conexao, $sql);
+        $resultado = mysqli_query($conexao, $sql);
 
-        if (mysqli_num_rows($resultado) > 0) {
+        if ($resultado && mysqli_num_rows($resultado) > 0) {
             $dados = mysqli_fetch_assoc($resultado);
-            $_SESSION['nome'] = $nome;
             $_SESSION['CPF'] = $CPF;
-            $_SESSION['senha'] = $senha;
             $_SESSION['id_usuario'] = $dados['id_usuario'];
+            $_SESSION['nome'] = $dados['nome'];
             $_SESSION['nivel'] = $dados['nivel'];
-
-            // Use a variável PHP para criar o JavaScript que será injetado na página
-            $nivel = $dados['nivel'];
-            echo "<script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Bem vindo!',
-                text: 'Login realizado com sucesso.',
-                showConfirmButton: false,
-                timer: 1500
-            }).then(() => {
-                switch ('$nivel') {
-                    case '1':
-                        window.location.href = 'nutricionista/nutricionista.php';
-                        break;
-                    case '2':
-                        window.location.href = 'enfermeira/enfermeira.php';
-                        break;
-                    case '3':
-                        window.location.href = 'psicologa/psicologa.php';
-                        break;
-                    case '0':
-                        window.location.href = 'testeloginm.php';
-                        break;
-                    default:
+            $_SESSION['senha'] = $dados['senha'];
+            
+            switch ($dados['nivel']) {
+               case '1':
+                  // Verifica se é a primeira vez que o usuário faz login
+                  if ($dados['primeiro_login'] == 0) {
+                     // Atualiza o banco de dados para indicar que não é mais o primeiro login
+                     $updateSql = "UPDATE usuario SET primeiro_login = 1 WHERE id_usuario = {$dados['id_usuario']}";
+                     mysqli_query($conexao, $updateSql);
+         
+                     echo "<script>
                         Swal.fire({
-                            icon: 'error',
-                            title: 'Erro!',
-                            text: 'Nível de usuário desconhecido.',
-                            showConfirmButton: true
+                           icon: 'success',
+                           title: 'Primeiro login!',
+                           text: 'Você será redirecionado para o formulário de edição.',
+                           showConfirmButton: false,
+                           timer: 1500
+                        }).then(() => {
+                           location.href='formEdit.php?id_usuario={$dados['id_usuario']}&genero={$dados['genero']}'; // Redireciona para o formulário de edição com os parâmetros GET
                         });
-                }
-            });
-            </script>";
-        } else {
+                     </script>";
+                  } else {
+                     // Se não for o primeiro login, redireciona diretamente para o dashboard
+                     echo "<script>
+                        Swal.fire({
+                           icon: 'success',
+                           title: 'Seja bem-vindo, " . htmlspecialchars($dados['nome'], ENT_QUOTES, 'UTF-8') . "',
+                           showConfirmButton: false,
+                           timer: 1500
+                        }).then(() => {
+                           location.href='enfermeira/index.php';
+                        });
+                     </script>";
+                  }
+                  break;
+               case '2':
+                  if ($dados['primeiro_login'] == 0) {
+                     $updateSql = "UPDATE usuario SET primeiro_login = 1 WHERE id_usuario = {$dados['id_usuario']}";
+                     mysqli_query($conexao, $updateSql);
+         
+                     echo "<script>
+                        Swal.fire({
+                           icon: 'success',
+                           title: 'Primeiro login!',
+                           text: 'Você será redirecionado para o formulário de edição.',
+                           showConfirmButton: false,
+                           timer: 1500
+                        }).then(() => {
+                           location.href='formEdit.php?id_usuario={$dados['id_usuario']}&genero={$dados['genero']}';
+                        });
+                     </script>";
+                  } else {
+                     echo "<script>
+                        Swal.fire({
+                           icon: 'success',
+                           title: 'Seja bem-vindo, " . htmlspecialchars($dados['nome'], ENT_QUOTES, 'UTF-8') . "',
+                           showConfirmButton: false,
+                           timer: 1500
+                        }).then(() => {
+                           location.href='psicologa/index.php';
+                        });
+                     </script>";
+                  }
+                  break;
+               case '3':
+                  if ($dados['primeiro_login'] == 0) {
+                     $updateSql = "UPDATE usuario SET primeiro_login = 1 WHERE id_usuario = {$dados['id_usuario']}";
+                     mysqli_query($conexao, $updateSql);
+         
+                     echo "<script>
+                        Swal.fire({
+                           icon: 'success',
+                           title: 'Primeiro login!',
+                           text: 'Você será redirecionado para o formulário de edição.',
+                           showConfirmButton: false,
+                           timer: 1500
+                        }).then(() => {
+                           location.href='formEdit.php?id_usuario={$dados['id_usuario']}&genero={$dados['genero']}';
+                        });
+                     </script>";
+                  } else {
+                     echo "<script>
+                        Swal.fire({
+                           icon: 'success',
+                           title: 'Seja bem-vindo, " . htmlspecialchars($dados['nome'], ENT_QUOTES, 'UTF-8') . "',
+                           showConfirmButton: false,
+                           timer: 1500
+                        }).then(() => {
+                           location.href='nutricionista/index.php';
+                        });
+                     </script>";
+                  }
+                  break;
+               default:
+                  echo "<script>
+                     Swal.fire({
+                        icon: 'error',
+                        title: 'Erro desconhecido.',
+                        text: 'Por favor, entre em contato com o suporte.',
+                     }).then(() => {
+                        location.href='index.php';
+                     });
+                  </script>";
+                  break;
+            }
+         } else {
+            // Se nenhum registro foi encontrado, exibe um alerta informando que o CPF ou a senha estão incorretos
             echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro!',
-                text: 'Matrícula ou senha incorretos.',
-                showConfirmButton: true
-            });
+               Swal.fire({
+                  icon: 'error',
+                  title: 'CPF ou SENHA incorretos',
+                  text: 'Por favor, insira novamente.',
+               }).then(() => {
+                  location.href='index.php';
+               });
             </script>";
-        }
+         }
     }
     ?>
-</body>
 
+</body>
 </html>
