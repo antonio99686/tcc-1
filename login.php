@@ -21,11 +21,12 @@
     $conexao = conn();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['CPF'], $_POST['senha'], $_POST['nome'])) {
+      $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
         $CPF = mysqli_real_escape_string($conexao, $_POST['CPF']);
         $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
-        $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
 
-        $sql = "SELECT * FROM usuario WHERE CPF = '{$CPF}' AND senha = '{$senha}' AND nome = '{$nome}'";
+
+        $sql = "SELECT * FROM usuario WHERE nome = '{$nome}' AND CPF = '{$CPF}' AND senha = '{$senha}'";
         $resultado = mysqli_query($conexao, $sql);
 
         if ($resultado && mysqli_num_rows($resultado) > 0) {

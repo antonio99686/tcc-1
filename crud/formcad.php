@@ -22,7 +22,7 @@
 <form class="form-signin" action="cadastrar.php" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Cadastrar-se</h1>
     <label for="Nome" class="sr-only">Nome</label>
-    <input type="name" name="nome"class="form-control" placeholder="Nome" required>
+    <input type="name" name="nome"class="form-control" placeholder="Nome" required autofocus>
     <label for="CPF" class="sr-only">CPF</label>
     <input type="text" name="CPF" class="form-control" placeholder="CPF" required>
     <label for="Senha" class="sr-only">Senha</label>
