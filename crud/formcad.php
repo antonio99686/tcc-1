@@ -22,12 +22,21 @@
 <form class="form-signin" action="cadastrar.php" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Cadastrar-se</h1>
     <label for="Nome" class="sr-only">Nome</label>
-    <input type="name" name="nome"class="form-control" placeholder="Nome" required autofocus>
-    <label for="CPF" class="sr-only">CPF</label>
-    <input type="text" name="CPF" class="form-control" placeholder="CPF" required>
+    <input type="name" name="Nome"class="form-control" placeholder="Nome" required autofocus>
+
+    <label for="SIAPE" class="sr-only">SIAPE</label>
+    <input type="text"  name="SIAPE" class="form-control" placeholder="SIAPE" required>
+
+    <label for="Perfil" class="sr-only">Perfil</label>
+    <input type="text"  name="Perfil" class="form-control" placeholder="Perfil" required>
+
+    <label for="Email" class="sr-only">Email</label>
+    <input type="Email"  name="Email" class="form-control" placeholder="Email" required>
+
     <label for="Senha" class="sr-only">Senha</label>
-    <input type="password"  name="senha" class="form-control" placeholder="Senha" required>
-    <div class="checkbox mb-3">
+    <input type="password"  name="Senha" class="form-control" placeholder="Senha" required>
+
+
   
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button> 

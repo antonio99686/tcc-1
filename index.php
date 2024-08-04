@@ -12,8 +12,7 @@
 <body>
   <form class="form-signin" action="login.php" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-    <input type="text" id="inputPassword" name="nome" class="form-control" placeholder="nome" required autofocus>
-    <input type="text" id="inputId" name="CPF" class="form-control" placeholder="CPF" required>
+    <input type="text" id="inputId" name="SIAPE" class="form-control" placeholder="SIAPE" required autofocus>
     <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
 
     <div class="checkbox mb-3">
