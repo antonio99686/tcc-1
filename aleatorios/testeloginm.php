@@ -39,5 +39,4 @@ $qtd = $res->num_rows;
 
 echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
 
-if ($qtd > 0) {
  
