@@ -1,7 +1,7 @@
 .form-signin {
   max-width: 380px;
   padding: 15px;
-  margin-top: 15%;
+  margin-top: 10%;
   margin-left: 40%;
 }
 
@@ -37,4 +37,12 @@
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }

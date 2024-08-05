@@ -15,9 +15,11 @@
 <?php
 
 // Receber os dados do formulário
-$nome = $_POST['nome'];
-$CPF = $_POST['CPF'];
-$senha = $_POST['senha'];
+$Nome = $_POST['Nome'];
+$SIAPE = $_POST['SIAPE'];
+$Email = $_POST['Email'];
+$Perfil = $_POST['Perfil'];
+$Senha = $_POST['Senha'];
 
 
 
@@ -26,8 +28,8 @@ $senha = $_POST['senha'];
 require_once "../function/conexao.php";
 $conexao = conn();
 //cadastra no banco
-$sql = "INSERT INTO usuario(nome,CPF,senha) 
-    VALUES ('$nome',$CPF,'$senha')";
+$sql = "INSERT INTO usuario(Nome,SIAPE,Email,Perfil,Senha) 
+    VALUES ('$Nome','$SIAPE','$Email','$Perfil','$Senha')";
 
 if (executarSQL($conexao, $sql)) {
   echo "<script>
