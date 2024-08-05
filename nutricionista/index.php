@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>nutricionista</h1>
     <?php
  include "../navbar.php"
  ?>
+    <h1>nutricionista</h1>
 </body>
 </html>
 
