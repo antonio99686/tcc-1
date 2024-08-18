@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="img/assistrencia.png">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
     <style>
         /* Estilo personalizado para a navbar */
         .navbar-custom {
