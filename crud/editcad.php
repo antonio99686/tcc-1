@@ -8,7 +8,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- Estilos CSS personalizados -->
   
-  <link href="../css/cadastraR.css" rel="stylesheet">
+  <link href="../css/editar.css" rel="stylesheet">
 </head>
 <body class="text-center">
   <form class="form-signin">
