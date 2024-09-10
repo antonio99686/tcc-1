@@ -11,6 +11,7 @@
  include "../navbar.php"
  ?>
     <h1>nutricionista</h1>
+    <a href="logout.php">sair </a>
 </body>
 </html>
 
