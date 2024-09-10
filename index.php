@@ -25,7 +25,7 @@
     <label for="SIAPE">SIAPE:</label>
     <input type="text" name="SIAPE">
     <label for="SIAPE">SENHA:</label>
-    <input type="password" id="senha"name="senha">
+    <input type="password" id="senha" name="senha">
   </form>
 
   <footer></footer>
