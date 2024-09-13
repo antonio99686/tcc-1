@@ -20,12 +20,13 @@
     <img src="img/iff.jpg" alt="">
   </div>
 
-  <form action="" method="">
+  <form action="login.php" method="POST">
     <h1>LOGIN</h1>
     <label for="SIAPE">SIAPE:</label>
     <input type="text" name="SIAPE">
     <label for="SIAPE">SENHA:</label>
     <input type="password" id="senha" name="senha">
+    <button >Logar</button>
   </form>
 
   <footer></footer>
